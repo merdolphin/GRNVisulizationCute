@@ -10,7 +10,7 @@ VisulizationWindow::VisulizationWindow(QWidget *parent) :
 
     loadImageToGraphicsView();
     dotFileContentTextEdit_show();
-
+    nodeShapesComboBox();
 }
 
 VisulizationWindow::~VisulizationWindow()
@@ -85,3 +85,10 @@ void VisulizationWindow::on_RefreshTextPushButton_clicked()
 }
 
 
+void VisulizationWindow::nodeShapesComboBox(){
+    QString nodeShapes [56] = {"ellipse","box", "polygon","oval","circle","point","egg","triangle","plaintext","diamond","trapezium","parallelogram","house","pentagon","hexagon","septagon","octagon","doublecircle","doubleoctagon","tripleoctagon","invtriangle","invtrapezium","invhouse","Mdiamond","Msquare","Mcircle","rect","rectangle","square","star","none","note","tab","folder","box3d","component","promoter","cds","terminator","utr","primersite","restrictionsite","fivepoverhang","threepoverhang","noverhang","assembly","signature","insulator","ribosite","rnastab","proteasesite","proteinstab","rpromoter","rarrow","larrow","lpromoter"};
+    int i;
+    for(i=0; i<56; i++){
+        ui->comboBoxNodeShapes->addItem((nodeShapes[i]));
+    }
+}

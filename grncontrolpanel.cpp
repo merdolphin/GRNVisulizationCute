@@ -9,6 +9,7 @@ GRNControlPanel::GRNControlPanel(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->OpenVisulizationButton, SIGNAL(clicked()), this, SLOT(openVisulizationWindow()));
+    connect(ui->pushButtonExit,SIGNAL(clicked()),this, SLOT(close()));
 }
 
 GRNControlPanel::~GRNControlPanel()
@@ -41,6 +42,8 @@ void GRNControlPanel::on_InputFileNameField_textChanged(const QString &string)
 {
     ui->InputFileNameField->setText(string);
 }
+
+
 
 
 

@@ -25,7 +25,7 @@ private slots:
     void on_DefaultTestPushButton_clicked();
     void on_SaveTextPushButton_clicked();
     void on_RefreshTextPushButton_clicked();
-
+    void nodeShapesComboBox();
 
 private:
     QGraphicsScene *scene;
