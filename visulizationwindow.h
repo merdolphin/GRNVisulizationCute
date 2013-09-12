@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include <QtCore>
+#include <QtGui>
+
+
 namespace Ui {
 class VisulizationWindow;
 }
@@ -14,6 +18,16 @@ class VisulizationWindow : public QMainWindow
 public:
     explicit VisulizationWindow(QWidget *parent = 0);
     ~VisulizationWindow();
+
+private slots:
+    void loadImageToGraphicsView();
+    void dotFileContentTextEdit_show();
+    void on_DefaultTestPushButton_clicked();
+    void on_SaveTextPushButton_clicked();
+    void on_RefreshTextPushButton_clicked();
+
+private:
+    QGraphicsScene *scene;
     
 private:
     Ui::VisulizationWindow *ui;

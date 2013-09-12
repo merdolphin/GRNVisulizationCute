@@ -26,6 +26,10 @@ private:
 private slots:
     void on_OpenVisulizationWindow_clicked();
 
+    void on_inputFileChooseButton_clicked();
+
+    void on_InputFileNameField_textChanged(const QString &arg1);
+
 private:
     Ui::GRNControlPanel *ui;
 };

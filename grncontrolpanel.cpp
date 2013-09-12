@@ -29,3 +29,18 @@ void GRNControlPanel::openVisulizationWindow()
     GRNVisulizationWindow->show();
 }
 
+
+void GRNControlPanel::on_inputFileChooseButton_clicked()
+{
+    QString inputFileName = QFileDialog::getOpenFileName(this, "Open File",QDir::currentPath());
+    on_InputFileNameField_textChanged(inputFileName);
+}
+
+
+void GRNControlPanel::on_InputFileNameField_textChanged(const QString &string)
+{
+    ui->InputFileNameField->setText(string);
+}
+
+
+
