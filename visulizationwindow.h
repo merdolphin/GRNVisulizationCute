@@ -26,10 +26,9 @@ private slots:
     void on_SaveTextPushButton_clicked();
     void on_RefreshTextPushButton_clicked();
 
+
 private:
     QGraphicsScene *scene;
-    
-private:
     Ui::VisulizationWindow *ui;
 };
 

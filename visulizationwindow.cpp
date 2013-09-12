@@ -11,7 +11,6 @@ VisulizationWindow::VisulizationWindow(QWidget *parent) :
     loadImageToGraphicsView();
     dotFileContentTextEdit_show();
 
-
 }
 
 VisulizationWindow::~VisulizationWindow()
@@ -84,4 +83,5 @@ void VisulizationWindow::on_RefreshTextPushButton_clicked()
     QProcess::execute("mogrify tmp/graph1.jpg tmp/graph1.jpg ");
     loadImageToGraphicsView();
 }
+
 
