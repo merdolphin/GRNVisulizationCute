@@ -20,16 +20,19 @@ PKGCONFIG += libgvc
 SOURCES += main.cpp \
     grncontrolpanel.cpp \
     visulizationwindow.cpp \
-    dataprocessing.cpp
+    dataprocessing.cpp \
+    pair.cpp
 
 HEADERS  += \
     grncontrolpanel.h \
     visulizationwindow.h \
-    dataprocessing.h
+    dataprocessing.h \
+    pair.h
 
 FORMS    += \
     grncontrolpanel.ui \
     visulizationwindow.ui
 
 OTHER_FILES += \
-    style.qss
+    style.qss \
+    graviz.txt
