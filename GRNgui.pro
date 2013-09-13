@@ -35,4 +35,5 @@ FORMS    += \
 
 OTHER_FILES += \
     style.qss \
-    graviz.txt
+    graviz.txt \
+    result.dot

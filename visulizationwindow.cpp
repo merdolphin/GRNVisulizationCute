@@ -49,7 +49,7 @@ void VisulizationWindow::dotFileContentTextEdit_show()
     if (! dotFile.isEmpty() ) {
         QFile file(dotFile);
 
-        if (!file.open(QIODevice::ReadOnly)) {
+        if (!file.open(QIODevice::ReadWrite)) {
             QMessageBox::critical(this, tr("Error"), tr("Could not open result.dot file"));
             return;
         }
