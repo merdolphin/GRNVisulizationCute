@@ -12,7 +12,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = GRNgui
 TEMPLATE = app
 
-CONFIG += console
+CONFIG += console \
+    link_pkgconfig
+
+PKGCONFIG += libgvc
 
 SOURCES += main.cpp \
     grncontrolpanel.cpp \
