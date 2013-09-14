@@ -92,3 +92,6 @@ void VisulizationWindow::nodeShapesComboBox(){
         ui->comboBoxNodeShapes->addItem((nodeShapes[i]));
     }
 }
+
+
+

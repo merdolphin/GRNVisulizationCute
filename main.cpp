@@ -6,6 +6,7 @@
 #include "grncontrolpanel.h"
 #include "dataprocessing.h"
 
+
 int main(int argc, char *argv[])
 {
     dataProcessing();

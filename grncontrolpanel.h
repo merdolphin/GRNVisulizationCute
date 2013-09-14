@@ -30,6 +30,7 @@ private slots:
 
     void on_InputFileNameField_textChanged(const QString &arg1);
 
+
 private:
     Ui::GRNControlPanel *ui;
 };
