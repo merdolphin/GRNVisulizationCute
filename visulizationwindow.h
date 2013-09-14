@@ -27,6 +27,8 @@ private slots:
     void on_RefreshTextPushButton_clicked();
     void nodeShapesComboBox();
     void saveTextEditToDotFile(QString);
+    void on_comboBoxNodeShapes_activated(const QString &arg1);
+    void RefreshFigure();
 
 private:
     QGraphicsScene *scene;

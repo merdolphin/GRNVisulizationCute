@@ -1,6 +1,7 @@
 #include "visulizationwindow.h"
 #include "ui_visulizationwindow.h"
 #include <QGraphicsScene>
+#include "dataprocessing.h"
 
 VisulizationWindow::VisulizationWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -85,10 +86,14 @@ void VisulizationWindow::on_RefreshTextPushButton_clicked()
 {
     saveTextEditToDotFile("tmpresult.dot");
     QProcess::execute("dot -Tps tmp/tmpresult.dot -o tmp/graph1.jpg");
+    RefreshFigure();
+}
+
+
+void VisulizationWindow::RefreshFigure(){
     QProcess::execute("mogrify tmp/graph1.jpg tmp/graph1.jpg ");
     loadImageToGraphicsView();
 }
-
 
 void VisulizationWindow::nodeShapesComboBox(){
     QString nodeShapes [56] = {"ellipse","box", "polygon","oval","circle","point","egg","triangle","plaintext","diamond","trapezium","parallelogram","house","pentagon","hexagon","septagon","octagon","doublecircle","doubleoctagon","tripleoctagon","invtriangle","invtrapezium","invhouse","Mdiamond","Msquare","Mcircle","rect","rectangle","square","star","none","note","tab","folder","box3d","component","promoter","cds","terminator","utr","primersite","restrictionsite","fivepoverhang","threepoverhang","noverhang","assembly","signature","insulator","ribosite","rnastab","proteasesite","proteinstab","rpromoter","rarrow","larrow","lpromoter"};
@@ -99,4 +104,11 @@ void VisulizationWindow::nodeShapesComboBox(){
 }
 
 
+void VisulizationWindow::on_comboBoxNodeShapes_activated(const QString &arg1)
+{
+    dataProcessing::writeToDotFile(arg1);
+    dotFileContentTextEdit_show();
+    QProcess::execute("dot -Tps tmp/result.dot -o tmp/graph1.jpg");
+    RefreshFigure();
+}
 
