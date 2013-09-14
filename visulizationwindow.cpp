@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include "dataprocessing.h"
 
+
 VisulizationWindow::VisulizationWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::VisulizationWindow)
@@ -37,6 +38,7 @@ void VisulizationWindow::loadImageToGraphicsView(){
         QGraphicsPixmapItem *item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
 
         scene->addItem(item);
+
         ui->NetworkGraphicsView->setScene(scene);
     }
 
@@ -85,7 +87,9 @@ void VisulizationWindow::saveTextEditToDotFile(QString filename){
 void VisulizationWindow::on_RefreshTextPushButton_clicked()
 {
     saveTextEditToDotFile("tmpresult.dot");
-    QProcess::execute("dot -Tps tmp/tmpresult.dot -o tmp/graph1.jpg");
+    QString layoutcmd = " -Tps tmp/tmpresult.dot -o tmp/graph1.jpg";
+    layoutcmd.prepend(ui->comboBoxLayout->currentText());
+    QProcess::execute(layoutcmd);
     RefreshFigure();
 }
 
@@ -108,7 +112,16 @@ void VisulizationWindow::on_comboBoxNodeShapes_activated(const QString &arg1)
 {
     dataProcessing::writeToDotFile(arg1);
     dotFileContentTextEdit_show();
-    QProcess::execute("dot -Tps tmp/result.dot -o tmp/graph1.jpg");
+    QString layoutcmd = " -Tps tmp/result.dot -o tmp/graph1.jpg";
+    layoutcmd.prepend(ui->comboBoxLayout->currentText());
+    QProcess::execute(layoutcmd);
     RefreshFigure();
 }
 
+void VisulizationWindow::on_comboBoxLayout_activated(const QString &arg1)
+{
+    QString layoutcmd = " -Tps tmp/tmpresult.dot -o tmp/graph1.jpg";
+    layoutcmd.prepend(arg1);
+    QProcess::execute(layoutcmd);
+    RefreshFigure();
+}

@@ -29,6 +29,7 @@ private slots:
     void saveTextEditToDotFile(QString);
     void on_comboBoxNodeShapes_activated(const QString &arg1);
     void RefreshFigure();
+    void on_comboBoxLayout_activated(const QString &arg1);
 
 private:
     QGraphicsScene *scene;

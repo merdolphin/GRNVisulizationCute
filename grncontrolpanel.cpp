@@ -42,3 +42,5 @@ void GRNControlPanel::on_InputFileNameField_textChanged(const QString &string)
 {
     ui->InputFileNameField->setText(string);
 }
+
+
