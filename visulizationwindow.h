@@ -27,13 +27,13 @@ private slots:
     void on_RefreshTextPushButton_clicked();
     void saveTextEditToDotFile(QString);
     void addnodeShapesComboBox();
-    void on_comboBoxNodeShapes_currentIndexChanged(const QString &arg1);
+    void on_comboBoxNodeShapes_activated(const QString &arg1);
     void RefreshFigure();
-    void on_comboBoxLayout_currentIndexChanged(const QString &arg1);
+    void on_comboBoxLayout_activated(const QString &arg1);
     void addcomboBoxNodeColor();
-    void on_comboBoxNodeColor_currentIndexChanged(const QString &arg1);
+    void on_comboBoxNodeColor_activated(const QString &arg1);
     void addcomboBoxNodeStyle();
-    void on_comboBoxNodeStyle_currentIndexChanged(const QString &arg1);
+    void on_comboBoxNodeStyle_activated(const QString &arg1);
 
 
 private:

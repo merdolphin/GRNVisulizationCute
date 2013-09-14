@@ -111,7 +111,7 @@ void VisulizationWindow::addnodeShapesComboBox(){
 }
 
 
-void VisulizationWindow::on_comboBoxNodeShapes_currentIndexChanged(const QString &arg1)
+void VisulizationWindow::on_comboBoxNodeShapes_activated(const QString &arg1)
 {
     dataProcessing::writeToDotFile(ui->comboBoxNodeStyle->currentText(),arg1, ui->comboBoxNodeColor->currentText());
     dotFileContentTextEdit_show();
@@ -121,7 +121,7 @@ void VisulizationWindow::on_comboBoxNodeShapes_currentIndexChanged(const QString
     RefreshFigure();
 }
 
-void VisulizationWindow::on_comboBoxLayout_currentIndexChanged(const QString &arg1)
+void VisulizationWindow::on_comboBoxLayout_activated(const QString &arg1)
 {
     QString layoutcmd = " -Tps tmp/tmpresult.dot -o tmp/graph1.jpg";
     layoutcmd.prepend(arg1);
@@ -144,7 +144,7 @@ void VisulizationWindow::addcomboBoxNodeColor()
 }
 
 
-void VisulizationWindow::on_comboBoxNodeColor_currentIndexChanged(const QString &arg1)
+void VisulizationWindow::on_comboBoxNodeColor_activated(const QString &arg1)
 {
     dataProcessing::writeToDotFile(ui->comboBoxNodeStyle->currentText(),ui->comboBoxNodeShapes->currentText(),arg1);
     dotFileContentTextEdit_show();
@@ -163,7 +163,7 @@ void VisulizationWindow::addcomboBoxNodeStyle()
 }
 
 
-void VisulizationWindow::on_comboBoxNodeStyle_currentIndexChanged(const QString &arg1)
+void VisulizationWindow::on_comboBoxNodeStyle_activated(const QString &arg1)
 {
     dataProcessing::writeToDotFile(arg1,ui->comboBoxNodeShapes->currentText(),ui->comboBoxNodeColor->currentText());
     dotFileContentTextEdit_show();
