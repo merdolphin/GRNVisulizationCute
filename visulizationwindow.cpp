@@ -13,6 +13,7 @@ VisulizationWindow::VisulizationWindow(QWidget *parent) :
     loadImageToGraphicsView();
     dotFileContentTextEdit_show();
     nodeShapesComboBox();
+    addcomboBoxNodeColor();
 }
 
 VisulizationWindow::~VisulizationWindow()
@@ -110,7 +111,7 @@ void VisulizationWindow::nodeShapesComboBox(){
 
 void VisulizationWindow::on_comboBoxNodeShapes_activated(const QString &arg1)
 {
-    dataProcessing::writeToDotFile(arg1);
+    dataProcessing::writeToDotFile(arg1, ui->comboBoxNodeColor->currentText());
     dotFileContentTextEdit_show();
     QString layoutcmd = " -Tps tmp/result.dot -o tmp/graph1.jpg";
     layoutcmd.prepend(ui->comboBoxLayout->currentText());
@@ -124,4 +125,18 @@ void VisulizationWindow::on_comboBoxLayout_activated(const QString &arg1)
     layoutcmd.prepend(arg1);
     QProcess::execute(layoutcmd);
     RefreshFigure();
+}
+
+void VisulizationWindow::addcomboBoxNodeColor()
+{
+
+    const QStringList colorNames = QColor::colorNames();
+    int index = 0;
+    foreach (const QString &colorName, colorNames) {
+        const QColor color(colorName);
+        ui->comboBoxNodeColor->addItem(colorName, color);
+        const QModelIndex idx = ui->comboBoxNodeColor->model()->index(index++, 0);
+        ui->comboBoxNodeColor->model()->setData(idx, color, Qt::BackgroundColorRole);
+
+    }
 }

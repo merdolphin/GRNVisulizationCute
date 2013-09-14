@@ -30,6 +30,8 @@ private slots:
     void on_comboBoxNodeShapes_activated(const QString &arg1);
     void RefreshFigure();
     void on_comboBoxLayout_activated(const QString &arg1);
+    void addcomboBoxNodeColor();
+    //void on_comboBoxNodeColor_activated(const QString &arg1);
 
 private:
     QGraphicsScene *scene;
