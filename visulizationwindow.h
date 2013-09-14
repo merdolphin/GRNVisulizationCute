@@ -26,6 +26,7 @@ private slots:
     void on_SaveTextPushButton_clicked();
     void on_RefreshTextPushButton_clicked();
     void nodeShapesComboBox();
+    void saveTextEditToDotFile(QString);
 
 private:
     QGraphicsScene *scene;

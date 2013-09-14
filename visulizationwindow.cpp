@@ -67,8 +67,11 @@ void VisulizationWindow::on_DefaultTestPushButton_clicked()
 
 void VisulizationWindow::on_SaveTextPushButton_clicked()
 {
+    saveTextEditToDotFile("result.dot");
+}
 
-    QString newdotFileName = QDir::currentPath()+"/tmp/"+"result.dot";
+void VisulizationWindow::saveTextEditToDotFile(QString filename){
+    QString newdotFileName = QDir::currentPath()+"/tmp/"+filename;
     QFile file(newdotFileName);
     if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream stream(&file);
@@ -77,9 +80,11 @@ void VisulizationWindow::on_SaveTextPushButton_clicked()
     }
 }
 
+
 void VisulizationWindow::on_RefreshTextPushButton_clicked()
 {
-    QProcess::execute("dot -Tps tmp/result.dot -o tmp/graph1.jpg");
+    saveTextEditToDotFile("tmpresult.dot");
+    QProcess::execute("dot -Tps tmp/tmpresult.dot -o tmp/graph1.jpg");
     QProcess::execute("mogrify tmp/graph1.jpg tmp/graph1.jpg ");
     loadImageToGraphicsView();
 }
