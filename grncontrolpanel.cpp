@@ -2,6 +2,7 @@
 #include "ui_grncontrolpanel.h"
 #include "visulizationwindow.h"
 #include "ui_visulizationwindow.h"
+#include "dataprocessing.h"
 
 GRNControlPanel::GRNControlPanel(QWidget *parent) :
     QMainWindow(parent),
@@ -13,11 +14,11 @@ GRNControlPanel::GRNControlPanel(QWidget *parent) :
     connect(ui->pushButtonExit,SIGNAL(clicked()),this, SLOT(close()));
 }
 
+
 GRNControlPanel::~GRNControlPanel()
 {
     delete ui;
 }
-
 
 
 void GRNControlPanel::openVisulizationWindow()
@@ -29,8 +30,9 @@ void GRNControlPanel::openVisulizationWindow()
 
 void GRNControlPanel::on_inputFileChooseButton_clicked()
 {
-    QString inputFileName = QFileDialog::getOpenFileName(this, "Open File",QDir::currentPath());
-    on_InputFileNameField_textChanged(inputFileName);
+    QString inputFilePath = QFileDialog::getOpenFileName(this, "Open File", QDir::homePath());
+    on_InputFileNameField_textChanged(inputFilePath);
+    dataProcessing::processing(inputFilePath);
 }
 
 
@@ -38,4 +40,6 @@ void GRNControlPanel::on_InputFileNameField_textChanged(const QString &string)
 {
     ui->InputFileNameField->setText(string);
 }
+
+
 

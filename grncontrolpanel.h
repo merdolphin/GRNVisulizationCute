@@ -15,7 +15,7 @@ class GRNControlPanel : public QMainWindow
 public:
     explicit GRNControlPanel(QWidget *parent = 0);
     ~GRNControlPanel();
-
+    static QString getFilePath();
 
 private:
     VisulizationWindow *GRNVisulizationWindow;

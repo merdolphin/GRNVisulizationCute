@@ -37,3 +37,5 @@ OTHER_FILES += \
     style.qss \
     graviz.txt \
     result.dot
+
+RESOURCES +=

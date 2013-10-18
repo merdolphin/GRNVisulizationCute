@@ -9,12 +9,18 @@
 
 int main(int argc, char *argv[])
 {
-    dataProcessing();
+    QDir dir("tmp");
+
+    if(!dir.exists()){
+        dir.mkpath(".");
+    }else{
+        dir.cleanPath(".");
+        dir.mkpath(".");
+    }
 
     QApplication a(argc, argv);
     GRNControlPanel w;
     w.show();
-    //w.hide();
 
 
     return a.exec();

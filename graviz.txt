@@ -1,0 +1,26 @@
+    /**
+    Agraph_t *g;
+    Agnode_t *n, *m;
+    Agedge_t *e;
+    Agsym_t *a;
+    GVC_t *gvc;
+
+    gvc = gvContext();
+
+
+    g = agopen("g", 0);
+    n = agnode(g,"n");
+    m = agnode(g, "m");
+    e = agedge(g, n, m);
+
+    agsafeset(n, "color", "red", "");
+
+    gvLayoutJobs(gvc, g);
+    gvRenderJobs(gvc, g);
+
+    gvRender(gvc, g, "plain", stdout);
+    gvFreeLayout(gvc, g);
+    gvRenderFilename(gvc, g, "png", "output.png");
+    agclose(g);
+    gvFreeContext(gvc);
+    **/

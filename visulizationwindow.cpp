@@ -4,6 +4,9 @@
 #include "dataprocessing.h"
 
 
+QString filePath = "tmp";
+QString dotFile =  "tmp/result.dot";
+
 VisulizationWindow::VisulizationWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::VisulizationWindow)
@@ -24,7 +27,8 @@ VisulizationWindow::~VisulizationWindow()
 }
 
 void VisulizationWindow::loadImageToGraphicsView(){
-    QString filePath = QDir::currentPath()+"/tmp";
+
+
     QString fileName = filePath + "/graph1.jpg";
 
     if(! fileName.isEmpty() ){
@@ -50,7 +54,6 @@ void VisulizationWindow::loadImageToGraphicsView(){
 
 void VisulizationWindow::dotFileContentTextEdit_show()
 {
-    QString dotFile = QDir::currentPath() +"/tmp/" + "result.dot";
 
     if (! dotFile.isEmpty() ) {
         QFile file(dotFile);
@@ -77,7 +80,7 @@ void VisulizationWindow::on_SaveTextPushButton_clicked()
 }
 
 void VisulizationWindow::saveTextEditToDotFile(QString filename){
-    QString newdotFileName = QDir::currentPath()+"/tmp/"+filename;
+    QString newdotFileName = "tmp/"+filename;
     QFile file(newdotFileName);
     if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream stream(&file);
