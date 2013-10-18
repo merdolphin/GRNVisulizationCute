@@ -91,9 +91,9 @@ void dataProcessing::writeToDotFile(QString nodestyle, QString nodeshape, QStrin
 }
 
 void dataProcessing::dotFileToGraph(){
-        QString layoutcmd = "dot -Tps tmp/result.dot -o tmp/graph1.jpg";
-        QProcess::execute(layoutcmd);
-        QProcess::execute("mogrify tmp/graph1.jpg tmp/graph1.jpg ");
+    QString layoutcmd = "dot -Tps tmp/result.dot -o tmp/graph1.jpg";
+    QProcess::execute(layoutcmd);
+    QProcess::execute("mogrify tmp/graph1.jpg tmp/graph1.jpg ");
 }
 
 

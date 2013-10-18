@@ -19,6 +19,10 @@ VisulizationWindow::VisulizationWindow(QWidget *parent) :
 
     loadImageToGraphicsView();
     dotFileContentTextEdit_show();
+
+    connect(ui->loadDotFile, SIGNAL(triggered()), this, SLOT(fileMenuLoadAction()));
+    connect(ui->actionDot_File, SIGNAL(triggered()), this,SLOT(exportDotFile()));
+    connect(ui->actionFigure_File, SIGNAL(triggered()), this, SLOT(exportFigureFile()));
 }
 
 VisulizationWindow::~VisulizationWindow()
@@ -175,3 +179,25 @@ void VisulizationWindow::on_comboBoxNodeStyle_activated(const QString &arg1)
     QProcess::execute(layoutcmd);
     RefreshFigure();
 }
+
+void VisulizationWindow::fileMenuLoadAction(){
+    QString infilePath = QFileDialog::getOpenFileName(this,"Load File", QDir::currentPath(), "*.dot *.jpg",0,0);
+    QFile::copy(infilePath, "tmp/result.dot");
+    QString layoutcmd = " -Tps tmp/tmpresult.dot -o tmp/graph1.jpg";
+    layoutcmd.prepend(ui->comboBoxLayout->currentText());
+    QProcess::execute(layoutcmd);
+    RefreshFigure();
+}
+
+void VisulizationWindow::exportDotFile(){
+    QString exportDotFile = QFileDialog::getOpenFileName(this, "save file", QDir::currentPath(),"*",0,0);
+    QFile::copy("tmp/result.dot", exportDotFile);
+    dotFileContentTextEdit_show();
+
+}
+
+void VisulizationWindow::exportFigureFile(){
+    QString exportGraphicFile = QFileDialog::getOpenFileName(this, "save file", QDir::currentPath(),"*",0,0);
+    QFile::copy("tmp/graph1.jpg", exportGraphicFile);
+}
+

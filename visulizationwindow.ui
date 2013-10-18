@@ -932,21 +932,24 @@ QGroupBox::title {
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="action_Open"/>
-    <addaction name="action_Export"/>
+    <widget class="QMenu" name="menu_Export">
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionFigure_File"/>
+     <addaction name="actionDot_File"/>
+    </widget>
+    <addaction name="loadDotFile"/>
+    <addaction name="menu_Export"/>
     <addaction name="action_Exit"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_Open">
+  <action name="loadDotFile">
    <property name="text">
-    <string>&amp;Open</string>
-   </property>
-  </action>
-  <action name="action_Export">
-   <property name="text">
-    <string>&amp;Export</string>
+    <string>&amp;Load</string>
    </property>
   </action>
   <action name="action_Exit">
@@ -957,6 +960,16 @@ QGroupBox::title {
   <action name="action_Exit_2">
    <property name="text">
     <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionDot_File">
+   <property name="text">
+    <string>Dot File</string>
+   </property>
+  </action>
+  <action name="actionFigure_File">
+   <property name="text">
+    <string>Figure</string>
    </property>
   </action>
  </widget>

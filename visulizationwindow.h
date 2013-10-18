@@ -34,7 +34,9 @@ private slots:
     void on_comboBoxNodeColor_activated(const QString &arg1);
     void addcomboBoxNodeStyle();
     void on_comboBoxNodeStyle_activated(const QString &arg1);
-
+    void fileMenuLoadAction();
+    void exportDotFile();
+    void exportFigureFile();
 
 private:
     QGraphicsScene *scene;
