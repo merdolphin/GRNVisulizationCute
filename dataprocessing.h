@@ -10,11 +10,11 @@ public:
 
     dataProcessing();
 
-    static void processing(QString);
+    static void processing(QString, QString);
 
     static void writeToDotFile(QString, QString, QString);
     static void readFinalnetworkIntoList(QString);
-    static void dotFileToGraph();
+    static void FileToGraph(QString);
 
 };
 

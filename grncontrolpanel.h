@@ -26,6 +26,18 @@ private slots:
     void on_inputFileChooseButton_clicked();
     void on_InputFileNameField_textChanged(const QString &arg1);
 
+    void on_dot_clicked();
+
+    void on_neato_clicked();
+
+    void on_fdp_clicked();
+
+    void on_sfdp_clicked();
+
+    void on_twopi_clicked();
+
+    void on_circo_clicked();
+
 private:
     Ui::GRNControlPanel *ui;
 };

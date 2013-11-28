@@ -4,6 +4,10 @@
 #include "ui_visulizationwindow.h"
 #include "dataprocessing.h"
 
+
+ QString layoutAttribute = "dot";
+ QString inputFilePath = NULL;
+
 GRNControlPanel::GRNControlPanel(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::GRNControlPanel)
@@ -23,16 +27,20 @@ GRNControlPanel::~GRNControlPanel()
 
 void GRNControlPanel::openVisulizationWindow()
 {
-    GRNVisulizationWindow = new VisulizationWindow();
-    GRNVisulizationWindow->show();
+    if(inputFilePath.isNull()){
+        QMessageBox::information(this,"Image Viewer","Please upload file.");
+    }else{
+       dataProcessing::processing(inputFilePath, layoutAttribute);
+        GRNVisulizationWindow = new VisulizationWindow();
+        GRNVisulizationWindow->show();
+    }
 }
 
 
 void GRNControlPanel::on_inputFileChooseButton_clicked()
 {
-    QString inputFilePath = QFileDialog::getOpenFileName(this, "Open File", QDir::homePath());
+    inputFilePath = QFileDialog::getOpenFileName(this, "Open File", QDir::homePath());
     on_InputFileNameField_textChanged(inputFilePath);
-    dataProcessing::processing(inputFilePath);
 }
 
 
@@ -43,3 +51,35 @@ void GRNControlPanel::on_InputFileNameField_textChanged(const QString &string)
 
 
 
+
+void GRNControlPanel::on_dot_clicked()
+{
+    layoutAttribute = "dot";
+}
+
+void GRNControlPanel::on_neato_clicked()
+{
+    layoutAttribute = "neato";
+}
+
+
+void GRNControlPanel::on_fdp_clicked()
+{
+    layoutAttribute = "fdp";
+}
+
+void GRNControlPanel::on_sfdp_clicked()
+{
+    layoutAttribute = "sfdp";
+}
+
+void GRNControlPanel::on_twopi_clicked()
+{
+    layoutAttribute = "twopi";
+}
+
+
+void GRNControlPanel::on_circo_clicked()
+{
+    layoutAttribute = "circo";
+}
